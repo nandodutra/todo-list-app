@@ -4,10 +4,11 @@ import axios from 'axios';
 import PageHeader from '../template/page-header';
 import TodoForm from './todoForm';
 import TodoList from './todo-list';
+import { connect } from 'react-redux';
 
 const URL = 'http://localhost:3003/api/todos';
 
-export default class Todo extends Component {
+class Todo extends Component {
     constructor(props) {
         super(props);
 
@@ -91,3 +92,7 @@ export default class Todo extends Component {
         </div>);
     }
 }
+
+const mapStateToProps = state => ({ description: state.todo.description });
+
+export default connect(mapStateToProps)(Todo);
