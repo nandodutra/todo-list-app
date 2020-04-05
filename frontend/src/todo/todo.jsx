@@ -6,14 +6,10 @@ import TodoList from './todo-list';
 import { connect } from 'react-redux';
 import { cleanDescription } from './todoActions';
 
-const Todo = () => {
+export default props => {
     return (<div>
         <PageHeader name="Tarefas" small="Cadastro" />
         <TodoForm/>
         <TodoList/>
     </div>);
 }
-
-const mapStateToProps = state => ({ description: state.todo.description });
-const mapActionsToProps = dispath => bindActionCreators({ cleanDescription }, dispath)
-export default connect(mapStateToProps, mapActionsToProps)(Todo);
