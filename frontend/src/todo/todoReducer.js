@@ -4,11 +4,15 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
+    console.log(action.type)
     switch (action.type) {
         case 'DESCRIPTION_CHANGED':
             return { ...state, description: action.payload };
         case 'TODO_SEARCHED':
-            return { ...state, list: action.payload.data };
+            return { ...state, list: action.payload };
+        case 'DESCRIPTION_CLEANED':
+        case 'TODO_ADDED':
+            return { ...state, description: '' } 
         default:
             return state;
     }
